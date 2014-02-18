@@ -799,6 +799,192 @@
     }
 }
 
+-(void)retrieveCloudDataWithName:(NSString *)documentName completion:(void (^)(NSData *documentData, NSError *error))handler __attribute__((nonnull)) {
+    // Log Retrieval
+    if (self.verboseLogging == YES) NSLog(@"[iCloud] Retrieving iCloud document, %@", documentName);
+    
+    // Check for iCloud availability
+    if ([self quickCloudCheck] == NO) return;
+    
+    // Check for nil / null document name
+    if (documentName == nil || [documentName isEqualToString:@""]) {
+        // Log error
+        if (self.verboseLogging == YES) NSLog(@"[iCloud] Specified document name must not be empty");
+        NSError *error = [NSError errorWithDomain:@"The specified document name was empty / blank and could not be saved. Specify a document name next time." code:001 userInfo:nil];
+        
+        handler(nil, error);
+        
+        return;
+    }
+    
+    @try {
+        // Get the URL to get the file from
+        NSURL *fileURL = [[self ubiquitousDocumentsDirectoryURL] URLByAppendingPathComponent:documentName];
+        
+        // If the file exists open it; otherwise, create it
+        if ([fileManager fileExistsAtPath:[fileURL path]]) {
+            // Log opening
+            if (self.verboseLogging == YES) NSLog(@"[iCloud] The document, %@, already exists and will be opened", documentName);
+            
+            // Create the UIDocument object from the URL
+            iCloudDocument *document = [[iCloudDocument alloc] initWithFileURL:fileURL];
+            
+            if (document.documentState & UIDocumentStateClosed) {
+                if (self.verboseLogging == YES) NSLog(@"[iCloud] Document is closed and will be opened");
+                
+                [document openWithCompletionHandler:^(BOOL success){
+                    if (success) {
+                        // Log open
+                        if (self.verboseLogging == YES) NSLog(@"[iCloud] Opened document");
+                        
+                        NSData *contents = [document.contents copy];
+                        [document closeWithCompletionHandler:^(BOOL success) {
+                            if (success) {
+                                // Log
+                                if (self.verboseLogging == YES) NSLog(@"[iCloud] Document Closed after read.");
+                                
+                                // Pass data on to the completion handler on the main thread
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    handler(contents, nil);
+                                });
+
+                            } else {
+                                NSLog(@"[iCloud] Error while reading document: %s", __PRETTY_FUNCTION__);
+                                NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while reading the document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:120 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                                
+                                handler(contents, error);
+                            }
+                        }];
+                        
+                        
+                        return;
+                    } else {
+                        NSLog(@"[iCloud] Error while retrieving document: %s", __PRETTY_FUNCTION__);
+                        NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while retrieving document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:200 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                        
+                        // Pass data on to the completion handler on the main thread
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            handler(nil, error);
+                        });
+                        
+                        return;
+                    }
+                }];
+            } else if (document.documentState & UIDocumentStateNormal) {
+                // Log open
+                if (self.verboseLogging == YES) NSLog(@"[iCloud] Document already opened, retrieving content");
+                
+                NSData *contents = [document.contents copy];
+                [document closeWithCompletionHandler:^(BOOL success) {
+                    if (success) {
+                        // Log
+                        if (self.verboseLogging == YES) NSLog(@"[iCloud] Document Closed after read.");
+                        
+                        // Pass data on to the completion handler on the main thread
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            handler(contents, nil);
+                        });
+                        
+                    } else {
+                        NSLog(@"[iCloud] Error while reading document: %s", __PRETTY_FUNCTION__);
+                        NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while reading the document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:121 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                        
+                        handler(contents, error);
+                    }
+                }];
+                
+                return;
+            } else if (document.documentState & UIDocumentStateInConflict) {
+                // Log open
+                if (self.verboseLogging == YES) NSLog(@"[iCloud] Document in conflict. The document may not contain correct data. An error will be returned along with the other parameters in the completion handler.");
+                
+                // Create Error
+                NSLog(@"[iCloud] Error while retrieving document, %@, because the document is in conflict", documentName);
+               // NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"The iCloud document, %@, is in conflict. Please resolve this conflict before editing the document.", documentName] code:200 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                
+                NSData *contents = [document.contents copy];
+                [document closeWithCompletionHandler:^(BOOL success) {
+                    if (success) {
+                        // Log
+                        if (self.verboseLogging == YES) NSLog(@"[iCloud] Document Closed after read.");
+                        
+                        // Pass data on to the completion handler on the main thread
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            handler(contents, nil);
+                        });
+                        
+                    } else {
+                        NSLog(@"[iCloud] Error while reading document: %s", __PRETTY_FUNCTION__);
+                        NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while reading the document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:122 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                        
+                        handler(contents, error);
+                    }
+                }];
+                return;
+            } else if (document.documentState & UIDocumentStateEditingDisabled) {
+                // Log open
+                if (self.verboseLogging == YES) NSLog(@"[iCloud] Document editing disabled. The document is not currently editable, use the documentStateForFile: method to determine when the document is available again. The document and its contents will still be passed as parameters in the completion handler.");
+                
+                NSData *contents = [document.contents copy];
+                [document closeWithCompletionHandler:^(BOOL success) {
+                    if (success) {
+                        // Log
+                        if (self.verboseLogging == YES) NSLog(@"[iCloud] Document Closed after read.");
+                        
+                        // Pass data on to the completion handler on the main thread
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            handler(contents, nil);
+                        });
+                        
+                    } else {
+                        NSLog(@"[iCloud] Error while reading document: %s", __PRETTY_FUNCTION__);
+                        NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while reading the document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:124 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                        
+                        handler(contents, error);
+                    }
+                }];
+                
+                return;
+            }
+            
+        } else {
+            // Log creation
+            if (self.verboseLogging == YES) NSLog(@"[iCloud] The document, %@, does not exist and will be created as an empty document", documentName);
+            
+            // Create the UIDocument
+            iCloudDocument *document = [[iCloudDocument alloc] initWithFileURL:fileURL];
+            document.contents = [[NSData alloc] init];
+            
+            // Save the new document to disk
+            [document saveToURL:fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+                // Log save
+                if (self.verboseLogging == YES) NSLog(@"[iCloud] Saved and opened the document");
+                
+                NSData *contents = [document.contents copy];
+                [document closeWithCompletionHandler:^(BOOL success) {
+                    if (success) {
+                        // Log
+                        if (self.verboseLogging == YES) NSLog(@"[iCloud] Document Closed after read.");
+                        
+                        // Pass data on to the completion handler on the main thread
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            handler(contents, nil);
+                        });
+                        
+                    } else {
+                        NSLog(@"[iCloud] Error while reading document: %s", __PRETTY_FUNCTION__);
+                        NSError *error = [NSError errorWithDomain:[NSString stringWithFormat:@"%s error while reading the document, %@, from iCloud", __PRETTY_FUNCTION__, document.fileURL] code:125 userInfo:[NSDictionary dictionaryWithObject:fileURL forKey:@"FileURL"]];
+                        
+                        handler(contents, error);
+                    }
+                }];
+            }];
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"[iCloud] Caught exception while retrieving document: %@\n\n%s", exception, __PRETTY_FUNCTION__);
+    }
+
+}
 - (NSNumber *)fileSize:(NSString *)documentName {
     // Check for iCloud
     if ([self quickCloudCheck] == NO) return nil;

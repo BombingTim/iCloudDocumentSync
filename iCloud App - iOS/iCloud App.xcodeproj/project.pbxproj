@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		04EBBBFE184C9402009022D1 /* iCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EBBBFC184C9402009022D1 /* iCloud.framework */; };
+		2217637618A966C7004DAC9E /* libiCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2217637518A966C7004DAC9E /* libiCloud.a */; };
 		9935A8E01846E5B4007C5628 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 9935A8DF1846E5B4007C5628 /* AppBanner.png */; };
 		996B9CA31830073C006A36DA /* MHPrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 996B9CA21830073C006A36DA /* MHPrettyDate.m */; };
 		997591521839500900DECF95 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 997591511839500900DECF95 /* Settings.bundle */; };
 		99AD4AC61837C3D3008BBEA4 /* CloudBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 99AD4AC51837C3D3008BBEA4 /* CloudBanner.png */; };
 		99ADF830184644FD005553A5 /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99ADF82F184644FD005553A5 /* iPadStoryboard.storyboard */; };
-		99BAB4F5184EC664008C62C9 /* iCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EBBBFC184C9402009022D1 /* iCloud.framework */; };
 		99D6CEFA1845B22400CD77BA /* ConflictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D6CEF91845B22400CD77BA /* ConflictViewController.m */; };
 		99E85B01182DC9280039FC97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E85B00182DC9280039FC97 /* Foundation.framework */; };
 		99E85B03182DC9280039FC97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E85B02182DC9280039FC97 /* CoreGraphics.framework */; };
@@ -47,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		04EBBBFC184C9402009022D1 /* iCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCloud.framework; path = ../iCloud.framework; sourceTree = "<group>"; };
+		2217637518A966C7004DAC9E /* libiCloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiCloud.a; path = "../../../../Library/Developer/Xcode/DerivedData/iCloud-axdcerrvjyfwerdmlefugogliggp/Build/Products/Debug-iphoneos/libiCloud.a"; sourceTree = "<group>"; };
 		9935A8DF1846E5B4007C5628 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		996B9CA11830073C006A36DA /* MHPrettyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHPrettyDate.h; sourceTree = "<group>"; };
 		996B9CA21830073C006A36DA /* MHPrettyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHPrettyDate.m; sourceTree = "<group>"; };
@@ -90,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99BAB4F5184EC664008C62C9 /* iCloud.framework in Frameworks */,
+				2217637618A966C7004DAC9E /* libiCloud.a in Frameworks */,
 				99E85B03182DC9280039FC97 /* CoreGraphics.framework in Frameworks */,
 				99E85B05182DC9280039FC97 /* UIKit.framework in Frameworks */,
 				99E85B01182DC9280039FC97 /* Foundation.framework in Frameworks */,
@@ -144,6 +145,7 @@
 		99E85AFF182DC9280039FC97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2217637518A966C7004DAC9E /* libiCloud.a */,
 				04EBBBFC184C9402009022D1 /* iCloud.framework */,
 				99E85B00182DC9280039FC97 /* Foundation.framework */,
 				99E85B02182DC9280039FC97 /* CoreGraphics.framework */,
@@ -266,7 +268,7 @@
 				ORGANIZATIONNAME = "iRare Media";
 				TargetAttributes = {
 					99E85AFC182DC9280039FC97 = {
-						DevelopmentTeam = 243F4RK8Z3;
+						DevelopmentTeam = C5F2AFAU9T;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -462,6 +464,7 @@
 		99E85B30182DC9290039FC97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "iCloud App/iCloud App.entitlements";
@@ -475,10 +478,14 @@
 				GCC_PREFIX_HEADER = "iCloud App/iCloud App-Prefix.pch";
 				INFOPLIST_FILE = "iCloud App/iCloud App-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iCloud-axdcerrvjyfwerdmlefugogliggp/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -486,6 +493,7 @@
 		99E85B31182DC9290039FC97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "iCloud App/iCloud App.entitlements";
@@ -499,10 +507,14 @@
 				GCC_PREFIX_HEADER = "iCloud App/iCloud App-Prefix.pch";
 				INFOPLIST_FILE = "iCloud App/iCloud App-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/iCloud-axdcerrvjyfwerdmlefugogliggp/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
