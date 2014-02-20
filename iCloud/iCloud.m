@@ -20,8 +20,10 @@
     NSNotificationCenter *notificationCenter;
     NSString *fileExtension;
     NSURL *ubiquityContainer;
+    
 }
 
+@property (atomic,strong) NSString *appId;
 /// Setup and start the metadata query and related notifications
 - (void)enumerateCloudDocuments;
 
@@ -41,19 +43,23 @@
 #pragma mark - Setup
 
 + (id)sharedCloud {
+    return [self sharedCloudWithAppId:nil];
+}
++ (id)sharedCloudWithAppId:(NSString *)appId {
     static iCloud *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        sharedManager = [[self alloc] initWithAppId:appId];
     });
     return sharedManager;
 }
-
-- (id)init {
+- (id)initWithAppId:(NSString *)appId {
     // Setup Starter Sync
     self = [super init];
 	
-	NSLog(@"[iCloud] Beginning Initialization");
+    self.appId = appId;
+    
+	if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Beginning Initialization for App ID: %@",appId);
 	
     if (self) {
         // Setup the File Manager
@@ -69,7 +75,7 @@
         
         // Check the iCloud Ubiquity Container
         dispatch_async (dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-			ubiquityContainer = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+			ubiquityContainer = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:self.appId];
 			if (ubiquityContainer != nil) {
 				// We can write to the ubiquity container
 				
@@ -90,14 +96,14 @@
 				});
                 
                 // Log the setup
-                NSLog(@"[iCloud] Ubiquity Container created and ready");
+                if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Ubiquity Container created and ready");
 			}
 		});
 		
     }
     
     // Log the setup
-    NSLog(@"[iCloud] Initialized");
+   if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Initialized");
     
     return self;
 }
@@ -152,7 +158,7 @@
 - (NSURL *)ubiquitousDocumentsDirectoryURL {
     @try {
         // Use the instance variable here - no need to start the retrieval process again
-        if (ubiquityContainer == nil) ubiquityContainer = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+        if (ubiquityContainer == nil) ubiquityContainer = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:self.appId];
         NSURL *documentsDirectory = [ubiquityContainer URLByAppendingPathComponent:DOCUMENT_DIRECTORY];
         NSError *error;
         
@@ -175,7 +181,7 @@
         
         if (error) NSLog(@"[iCloud] POSSIBLY FATAL ERROR - Document directory creation error. This error may be fatal and should be recovered from. If the documents directory is not correctly created, this can cause iCloud to stop functioning properly (including exceptiosn being thrown). Error: %@", error);
         
-        NSLog(@"Documents URL: %@", documentsDirectory);
+        if (self.verboseAvailabilityLogging) NSLog(@"Documents URL: %@", documentsDirectory);
         return documentsDirectory;
         
     } @catch (NSException *exception) {
@@ -192,7 +198,7 @@
 
 - (void)enumerateCloudDocuments {
     // Log document enumeration
-    NSLog(@"[iCloud] Creating metadata query and notifications");
+    if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Creating metadata query and notifications");
     
     // Request information from the delegate
     if ([self.delegate respondsToSelector:@selector(iCloudQueryLimitedToFileExtension)]) {
@@ -201,7 +207,7 @@
         else fileExtension = @"*";
         
         // Log file extensiom
-        NSLog(@"[iCloud] Document query filter has been set to %@", fileExtension);
+        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Document query filter has been set to %@", fileExtension);
     } else {
         fileExtension = @"*";
     }
@@ -217,11 +223,11 @@
     // Start the query
     BOOL startedQuery = [self.query startQuery];
     if (!startedQuery) {
-        NSLog(@"[iCloud] Failed to start query.");
+        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Failed to start query.");
         return;
     } else {
         // Log file query success
-        NSLog(@"[iCloud] Query initialized successfully");
+        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Query initialized successfully");
     }
 }
 
@@ -245,7 +251,9 @@
         
         // The query reports all files found, every time
         NSArray *queryResults = self.query.results;
-        NSLog(@"Query Results: %@", self.query.results);
+        
+        if (self.verboseLogging == YES) NSLog(@"Query Results: %@", self.query.results);
+        
         for (NSMetadataItem *result in queryResults) {
             NSURL *fileURL = [result valueForAttribute:NSMetadataItemURLKey];
             NSNumber *aBool = nil;

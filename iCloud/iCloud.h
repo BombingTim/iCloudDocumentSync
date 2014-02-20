@@ -57,7 +57,7 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
 /** iCloud shared instance object
  @return The shared instance of iCloud */
 + (id)sharedCloud;
-
++ (id)sharedCloudWithAppId:(NSString *)appId;
 
 
 
