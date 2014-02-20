@@ -20,7 +20,6 @@
     NSNotificationCenter *notificationCenter;
     NSString *fileExtension;
     NSURL *ubiquityContainer;
-    
 }
 
 @property (atomic,strong) NSString *appId;
