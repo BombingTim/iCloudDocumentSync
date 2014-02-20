@@ -58,7 +58,7 @@
 	
     self.appId = appId;
     
-	if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Beginning Initialization for App ID: %@",appId);
+    NSLog(@"[iCloud] Beginning Initialization for App ID: %@",appId);
 	
     if (self) {
         // Setup the File Manager
@@ -95,14 +95,14 @@
 				});
                 
                 // Log the setup
-                if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Ubiquity Container created and ready");
+                NSLog(@"[iCloud] Ubiquity Container created and ready");
 			}
 		});
 		
     }
     
     // Log the setup
-   if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Initialized");
+    NSLog(@"[iCloud] Initialized");
     
     return self;
 }
@@ -180,7 +180,7 @@
         
         if (error) NSLog(@"[iCloud] POSSIBLY FATAL ERROR - Document directory creation error. This error may be fatal and should be recovered from. If the documents directory is not correctly created, this can cause iCloud to stop functioning properly (including exceptiosn being thrown). Error: %@", error);
         
-        if (self.verboseAvailabilityLogging) NSLog(@"Documents URL: %@", documentsDirectory);
+        NSLog(@"Documents URL: %@", documentsDirectory);
         return documentsDirectory;
         
     } @catch (NSException *exception) {
@@ -197,7 +197,7 @@
 
 - (void)enumerateCloudDocuments {
     // Log document enumeration
-    if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Creating metadata query and notifications");
+    NSLog(@"[iCloud] Creating metadata query and notifications");
     
     // Request information from the delegate
     if ([self.delegate respondsToSelector:@selector(iCloudQueryLimitedToFileExtension)]) {
@@ -206,7 +206,7 @@
         else fileExtension = @"*";
         
         // Log file extensiom
-        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Document query filter has been set to %@", fileExtension);
+        NSLog(@"[iCloud] Document query filter has been set to %@", fileExtension);
     } else {
         fileExtension = @"*";
     }
@@ -222,11 +222,11 @@
     // Start the query
     BOOL startedQuery = [self.query startQuery];
     if (!startedQuery) {
-        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Failed to start query.");
+        NSLog(@"[iCloud] Failed to start query.");
         return;
     } else {
         // Log file query success
-        if (self.verboseAvailabilityLogging) NSLog(@"[iCloud] Query initialized successfully");
+        NSLog(@"[iCloud] Query initialized successfully");
     }
 }
 
