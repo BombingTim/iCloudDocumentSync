@@ -19,12 +19,6 @@
 // Import iCloudDocument
 #import <iCloud/iCloudDocument.h>
 
-// Check for ARC
-#if !__has_feature(objc_arc)
-    // Add the -fobjc-arc flag to enable ARC for only these files, as described in the ARC documentation: http://clang.llvm.org/docs/AutomaticReferenceCounting.html
-    #error iCloudDocumentSync is built with Objective-C ARC. You must enable ARC for iCloudDocumentSync.
-#endif
-
 // Ensure that the build is for iOS 5.1 or higher
 #ifndef __IPHONE_5_1
     #error iCloudDocumentSync is built with features only available is iOS SDK 5.1 and later.
@@ -63,7 +57,7 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
 /** iCloud shared instance object
  @return The shared instance of iCloud */
 + (id)sharedCloud;
-
++ (id)sharedCloudWithAppId:(NSString *)appId;
 
 
 
@@ -246,6 +240,12 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
  @param documentName The name of the UIDocument stored in iCloud. This value must not be nil.
  @return An iCloudDocument (UIDocument subclass) object. May return nil if iCloud is unavailable or if an error occurred */
 - (iCloudDocument *)retrieveCloudDocumentObjectWithName:(NSString *)documentName __attribute__((nonnull));
+
+/** Get the file contents for the specified file
+ @param documentName The name of the document in iCloud. This value must not be nil.
+ @param handler Code block called when the data is successfully retrieved (opened or downloaded). The completion block passes a NSData object it's contents in the form of NSData. If there is an error, the NSError object will have an error message (may be nil if there is no error). This value must not be nil. */
+
+-(void)retrieveCloudDataWithName:(NSString *)documentName completion:(void (^)(NSData *documentData, NSError *error))handler __attribute__((nonnull));
 
 /** Check if a file exists in iCloud
  
