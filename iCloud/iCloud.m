@@ -41,7 +41,7 @@
 //---------------------------------------------------------------------------------------------------------------------------------------------//
 #pragma mark - Setup
 
-+ (id)sharedCloud {
++ (instancetype)sharedCloud {
     return [self sharedCloudWithAppId:nil];
 }
 + (id)sharedCloudWithAppId:(NSString *)appId {
@@ -52,7 +52,7 @@
     });
     return sharedManager;
 }
-- (id)initWithAppId:(NSString *)appId {
+- (instancetype)initWithAppId:(NSString *)appId {
     // Setup Starter Sync
     self = [super init];
 	
@@ -289,9 +289,11 @@
     
         // The query reports all files found, every time
         NSArray *queryResults = self.query.results;
-        
+    
+        // Log the query results
         if (self.verboseLogging == YES) NSLog(@"Query Results: %@", self.query.results);
-        
+    
+        // Gather the query results
         for (NSMetadataItem *result in queryResults) {
             NSURL *fileURL = [result valueForAttribute:NSMetadataItemURLKey];
             NSNumber *aBool = nil;
