@@ -396,13 +396,22 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
 - (void)iCloudDidFinishInitializingWitUbiquityToken:(id)cloudToken withUbiquityContainer:(NSURL *)ubiquityContainer;
 
 
-
 /** Called before creating an iCloud Query filter. Specify the type of file to be queried. 
  
  @discussion If this delegate is not implemented or returns nil, all files stored in the documents directory will be queried.
  
  @return An NSString with one file extension formatted like this: @"txt" */
 - (NSString *)iCloudQueryLimitedToFileExtension;
+
+
+/** Called before an iCloud Query begins.
+ @discussion This may be useful to display interface updates. */
+- (void)iCloudFileUpdateDidBegin;
+
+
+/** Called when an iCloud Query ends.
+ @discussion This may be useful to display interface updates. */
+- (void)iCloudFileUpdateDidEnd;
 
 
 /** Tells the delegate that the files in iCloud have been modified
