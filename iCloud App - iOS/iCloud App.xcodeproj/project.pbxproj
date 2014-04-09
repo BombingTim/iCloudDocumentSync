@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04EBBBFE184C9402009022D1 /* iCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EBBBFC184C9402009022D1 /* iCloud.framework */; };
 		2217637618A966C7004DAC9E /* libiCloud.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2217637518A966C7004DAC9E /* libiCloud.a */; };
 		9935A8E01846E5B4007C5628 /* AppBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 9935A8DF1846E5B4007C5628 /* AppBanner.png */; };
 		996B9CA31830073C006A36DA /* MHPrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 996B9CA21830073C006A36DA /* MHPrettyDate.m */; };
@@ -46,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04EBBBFC184C9402009022D1 /* iCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iCloud.framework; path = ../iCloud.framework; sourceTree = "<group>"; };
 		2217637518A966C7004DAC9E /* libiCloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiCloud.a; path = "../../../../Library/Developer/Xcode/DerivedData/iCloud-axdcerrvjyfwerdmlefugogliggp/Build/Products/Debug-iphoneos/libiCloud.a"; sourceTree = "<group>"; };
 		9935A8DF1846E5B4007C5628 /* AppBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppBanner.png; sourceTree = "<group>"; };
 		996B9CA11830073C006A36DA /* MHPrettyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHPrettyDate.h; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				99E85B20182DC9280039FC97 /* XCTest.framework in Frameworks */,
-				04EBBBFE184C9402009022D1 /* iCloud.framework in Frameworks */,
 				99E85B22182DC9280039FC97 /* UIKit.framework in Frameworks */,
 				99E85B21182DC9280039FC97 /* Foundation.framework in Frameworks */,
 			);
@@ -146,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2217637518A966C7004DAC9E /* libiCloud.a */,
-				04EBBBFC184C9402009022D1 /* iCloud.framework */,
 				99E85B00182DC9280039FC97 /* Foundation.framework */,
 				99E85B02182DC9280039FC97 /* CoreGraphics.framework */,
 				99E85B04182DC9280039FC97 /* UIKit.framework */,
