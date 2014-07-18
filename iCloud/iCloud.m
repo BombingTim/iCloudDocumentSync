@@ -586,7 +586,7 @@
             
             // Move the file to iCloud
             NSURL *cloudURL = [[self ubiquitousDocumentsDirectoryURL] URLByAppendingPathComponent:documentName];
-            NSURL *localURL = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:localDocument]];
+            NSURL *localURL = [NSURL fileURLWithPath:localDocument];
             NSError *error;
             
             BOOL success = [fileManager setUbiquitous:YES itemAtURL:localURL destinationURL:cloudURL error:&error];
@@ -1544,7 +1544,7 @@
             
             // Move the file to iCloud
             NSURL *cloudURL = [[self ubiquitousDocumentsDirectoryURL] URLByAppendingPathComponent:documentName];
-            NSURL *localURL = [NSURL fileURLWithPath:[documentsDirectory stringByAppendingPathComponent:localDocument]];
+            NSURL *localURL = [NSURL fileURLWithPath:localDocument];
             NSError *error;
             
             BOOL success = [fileManager setUbiquitous:NO itemAtURL:cloudURL destinationURL:localURL error:&error];
