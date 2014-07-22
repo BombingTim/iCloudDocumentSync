@@ -17,7 +17,7 @@
 #endif
 
 // Import iCloudDocument
-#import <iCloud/iCloudDocument.h>
+#import "iCloudDocument.h"
 
 // Ensure that the build is for iOS 5.1 or higher
 #ifndef __IPHONE_5_1
