@@ -35,6 +35,16 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2253B3861979B7CD00955E4A /* iCloud_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253B3851979B7CD00955E4A /* iCloud_OSX.m */; };
+		2253B38D1979B7CD00955E4A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2253B38C1979B7CD00955E4A /* XCTest.framework */; };
+		2253B38E1979B7CD00955E4A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2253B37B1979B7CD00955E4A /* Cocoa.framework */; };
+		2253B3911979B7CD00955E4A /* libiCloud OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2253B37A1979B7CD00955E4A /* libiCloud OSX.a */; };
+		2253B3971979B7CD00955E4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2253B3951979B7CD00955E4A /* InfoPlist.strings */; };
+		2253B3991979B7CD00955E4A /* iCloud_OSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253B3981979B7CD00955E4A /* iCloud_OSXTests.m */; };
+		2253B3A81979B97000955E4A /* iCloud_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 2253B3841979B7CD00955E4A /* iCloud_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2253B3AB1979FFB200955E4A /* iCloudDocument_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 2253B3A91979FFB200955E4A /* iCloudDocument_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2253B3AC1979FFB200955E4A /* iCloudDocument_OSX.m in Sources */ = {isa = PBXBuildFile; fileRef = 2253B3AA1979FFB200955E4A /* iCloudDocument_OSX.m */; };
+		2253B3B4197A057F00955E4A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2253B3B3197A057F00955E4A /* Cocoa.framework */; };
 		9994D1A816FE3ABF00AB071B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9994D1A716FE3ABF00AB071B /* Foundation.framework */; };
 		9994D1AD16FE3ABF00AB071B /* iCloud.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9994D1AC16FE3ABF00AB071B /* iCloud.h */; };
 		9994D1AF16FE3ABF00AB071B /* iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9994D1AE16FE3ABF00AB071B /* iCloud.m */; };
@@ -46,6 +56,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2253B3461979633500955E4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2253B33F1979633500955E4A /* iCloud For Mac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2253B3081979633400955E4A;
+			remoteInfo = "iCloud For Mac";
+		};
+		2253B3481979633500955E4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2253B33F1979633500955E4A /* iCloud For Mac.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2253B3291979633500955E4A;
+			remoteInfo = "iCloud For MacTests";
+		};
+		2253B38F1979B7CD00955E4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9994D19C16FE3ABF00AB071B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2253B3791979B7CD00955E4A;
+			remoteInfo = "iCloud OSX";
+		};
 		9994D1BF16FE3C8C00AB071B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9994D19C16FE3ABF00AB071B /* Project object */;
@@ -91,6 +122,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2253B33F1979633500955E4A /* iCloud For Mac.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "iCloud For Mac.xcodeproj"; path = "iCloud For Mac/iCloud For Mac.xcodeproj"; sourceTree = "<group>"; };
+		2253B37A1979B7CD00955E4A /* libiCloud OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libiCloud OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2253B37B1979B7CD00955E4A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		2253B37E1979B7CD00955E4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2253B37F1979B7CD00955E4A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2253B3801979B7CD00955E4A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2253B3831979B7CD00955E4A /* iCloud OSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCloud OSX-Prefix.pch"; sourceTree = "<group>"; };
+		2253B3841979B7CD00955E4A /* iCloud_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCloud_OSX.h; sourceTree = "<group>"; };
+		2253B3851979B7CD00955E4A /* iCloud_OSX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloud_OSX.m; sourceTree = "<group>"; };
+		2253B38B1979B7CD00955E4A /* iCloud OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iCloud OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2253B38C1979B7CD00955E4A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2253B3941979B7CD00955E4A /* iCloud OSXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iCloud OSXTests-Info.plist"; sourceTree = "<group>"; };
+		2253B3961979B7CD00955E4A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2253B3981979B7CD00955E4A /* iCloud_OSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloud_OSXTests.m; sourceTree = "<group>"; };
+		2253B3A91979FFB200955E4A /* iCloudDocument_OSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDocument_OSX.h; sourceTree = "<group>"; };
+		2253B3AA1979FFB200955E4A /* iCloudDocument_OSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDocument_OSX.m; sourceTree = "<group>"; };
+		2253B3B3197A057F00955E4A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		99670E021806160E005BC6B7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		99670E49180622F6005BC6B7 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
 		99670E4A180622F6005BC6B7 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
@@ -124,6 +172,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2253B3771979B7CD00955E4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3B4197A057F00955E4A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2253B3881979B7CD00955E4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3911979B7CD00955E4A /* libiCloud OSX.a in Frameworks */,
+				2253B38E1979B7CD00955E4A /* Cocoa.framework in Frameworks */,
+				2253B38D1979B7CD00955E4A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9994D1A116FE3ABF00AB071B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,6 +202,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2253B3401979633500955E4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2253B3471979633500955E4A /* iCloud For Mac.app */,
+				2253B3491979633500955E4A /* iCloud For MacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2253B37D1979B7CD00955E4A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2253B37E1979B7CD00955E4A /* Foundation.framework */,
+				2253B37F1979B7CD00955E4A /* CoreData.framework */,
+				2253B3801979B7CD00955E4A /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2253B3811979B7CD00955E4A /* iCloud OSX */ = {
+			isa = PBXGroup;
+			children = (
+				2253B3841979B7CD00955E4A /* iCloud_OSX.h */,
+				2253B3851979B7CD00955E4A /* iCloud_OSX.m */,
+				2253B3A91979FFB200955E4A /* iCloudDocument_OSX.h */,
+				2253B3AA1979FFB200955E4A /* iCloudDocument_OSX.m */,
+				2253B3821979B7CD00955E4A /* Supporting Files */,
+			);
+			path = "iCloud OSX";
+			sourceTree = "<group>";
+		};
+		2253B3821979B7CD00955E4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2253B3831979B7CD00955E4A /* iCloud OSX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2253B3921979B7CD00955E4A /* iCloud OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				2253B3981979B7CD00955E4A /* iCloud_OSXTests.m */,
+				2253B3931979B7CD00955E4A /* Supporting Files */,
+			);
+			path = "iCloud OSXTests";
+			sourceTree = "<group>";
+		};
+		2253B3931979B7CD00955E4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2253B3941979B7CD00955E4A /* iCloud OSXTests-Info.plist */,
+				2253B3951979B7CD00955E4A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		99670E0318061613005BC6B7 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +273,12 @@
 		9994D19B16FE3ABF00AB071B = {
 			isa = PBXGroup;
 			children = (
+				2253B33F1979633500955E4A /* iCloud For Mac.xcodeproj */,
 				99AD4ABC1837C392008BBEA4 /* iCloud App.xcodeproj */,
 				99B2C6741835DDC500E4AE26 /* Documentation */,
 				9994D1A916FE3ABF00AB071B /* iCloud */,
+				2253B3811979B7CD00955E4A /* iCloud OSX */,
+				2253B3921979B7CD00955E4A /* iCloud OSXTests */,
 				9994D1A616FE3ABF00AB071B /* Frameworks */,
 				9994D1A516FE3ABF00AB071B /* Products */,
 			);
@@ -162,6 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				9994D1A416FE3ABF00AB071B /* libiCloud.a */,
+				2253B37A1979B7CD00955E4A /* libiCloud OSX.a */,
+				2253B38B1979B7CD00955E4A /* iCloud OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,9 +297,13 @@
 		9994D1A616FE3ABF00AB071B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2253B3B3197A057F00955E4A /* Cocoa.framework */,
 				9994D1A716FE3ABF00AB071B /* Foundation.framework */,
 				996A9B7F177C8DCA0030039A /* UIKit.framework */,
 				996A9B82177C8DCA0030039A /* CoreGraphics.framework */,
+				2253B37B1979B7CD00955E4A /* Cocoa.framework */,
+				2253B38C1979B7CD00955E4A /* XCTest.framework */,
+				2253B37D1979B7CD00955E4A /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -281,6 +413,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2253B3781979B7CD00955E4A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3AB1979FFB200955E4A /* iCloudDocument_OSX.h in Headers */,
+				2253B3A81979B97000955E4A /* iCloud_OSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9994D1C216FE3CEC00AB071B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +434,41 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2253B3791979B7CD00955E4A /* iCloud OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2253B39A1979B7CD00955E4A /* Build configuration list for PBXNativeTarget "iCloud OSX" */;
+			buildPhases = (
+				2253B3761979B7CD00955E4A /* Sources */,
+				2253B3771979B7CD00955E4A /* Frameworks */,
+				2253B3781979B7CD00955E4A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iCloud OSX";
+			productName = "iCloud OSX";
+			productReference = 2253B37A1979B7CD00955E4A /* libiCloud OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2253B38A1979B7CD00955E4A /* iCloud OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2253B39D1979B7CD00955E4A /* Build configuration list for PBXNativeTarget "iCloud OSXTests" */;
+			buildPhases = (
+				2253B3871979B7CD00955E4A /* Sources */,
+				2253B3881979B7CD00955E4A /* Frameworks */,
+				2253B3891979B7CD00955E4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2253B3901979B7CD00955E4A /* PBXTargetDependency */,
+			);
+			name = "iCloud OSXTests";
+			productName = "iCloud OSXTests";
+			productReference = 2253B38B1979B7CD00955E4A /* iCloud OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9994D1A316FE3ABF00AB071B /* iCloud */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9994D1B216FE3ABF00AB071B /* Build configuration list for PBXNativeTarget "iCloud" */;
@@ -337,17 +513,37 @@
 					ProductGroup = 99AD4ABD1837C392008BBEA4 /* Products */;
 					ProjectRef = 99AD4ABC1837C392008BBEA4 /* iCloud App.xcodeproj */;
 				},
+				{
+					ProductGroup = 2253B3401979633500955E4A /* Products */;
+					ProjectRef = 2253B33F1979633500955E4A /* iCloud For Mac.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
 				9994D1A316FE3ABF00AB071B /* iCloud */,
 				9994D1BB16FE3C8400AB071B /* Framework */,
 				99B6465D182EB73200249C57 /* Documentation */,
+				2253B3791979B7CD00955E4A /* iCloud OSX */,
+				2253B38A1979B7CD00955E4A /* iCloud OSXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2253B3471979633500955E4A /* iCloud For Mac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "iCloud For Mac.app";
+			remoteRef = 2253B3461979633500955E4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2253B3491979633500955E4A /* iCloud For MacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iCloud For MacTests.xctest";
+			remoteRef = 2253B3481979633500955E4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		99AD4AC21837C392008BBEA4 /* iCloud App.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -363,6 +559,17 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2253B3891979B7CD00955E4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3971979B7CD00955E4A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		996E14CD183EDBE900B7ADAE /* Remove Files */ = {
@@ -424,6 +631,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2253B3761979B7CD00955E4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3861979B7CD00955E4A /* iCloud_OSX.m in Sources */,
+				2253B3AC1979FFB200955E4A /* iCloudDocument_OSX.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2253B3871979B7CD00955E4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2253B3991979B7CD00955E4A /* iCloud_OSXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9994D1A016FE3ABF00AB071B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,6 +660,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2253B3901979B7CD00955E4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2253B3791979B7CD00955E4A /* iCloud OSX */;
+			targetProxy = 2253B38F1979B7CD00955E4A /* PBXContainerItemProxy */;
+		};
 		9994D1C016FE3C8C00AB071B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9994D1A316FE3ABF00AB071B /* iCloud */;
@@ -448,7 +677,144 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2253B3951979B7CD00955E4A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2253B3961979B7CD00955E4A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2253B39B1979B7CD00955E4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloud OSX/iCloud OSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "x86_64 i386";
+			};
+			name = Debug;
+		};
+		2253B39C1979B7CD00955E4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloud OSX/iCloud OSX-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "x86_64 i386";
+			};
+			name = Release;
+		};
+		2253B39E1979B7CD00955E4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloud OSX/iCloud OSX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "iCloud OSXTests/iCloud OSXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2253B39F1979B7CD00955E4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iCloud OSX/iCloud OSX-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "iCloud OSXTests/iCloud OSXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		9994D1B016FE3ABF00AB071B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -584,6 +950,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2253B39A1979B7CD00955E4A /* Build configuration list for PBXNativeTarget "iCloud OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2253B39B1979B7CD00955E4A /* Debug */,
+				2253B39C1979B7CD00955E4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2253B39D1979B7CD00955E4A /* Build configuration list for PBXNativeTarget "iCloud OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2253B39E1979B7CD00955E4A /* Debug */,
+				2253B39F1979B7CD00955E4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9994D19F16FE3ABF00AB071B /* Build configuration list for PBXProject "iCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

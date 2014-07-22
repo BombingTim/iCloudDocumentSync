@@ -18,6 +18,7 @@
 	// Do any additional setup after loading the view.
     
     [[iCloud sharedCloud] setDelegate:self];
+	[iCloud sharedCloud].verboseAvailabilityLogging = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

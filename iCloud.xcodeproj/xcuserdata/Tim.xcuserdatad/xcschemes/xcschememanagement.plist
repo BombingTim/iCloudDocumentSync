@@ -14,6 +14,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>iCloud Mac Library.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>iCloud OSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>iCloud.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,6 +32,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2253B3551979AF2F00955E4A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2253B3791979B7CD00955E4A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2253B38A1979B7CD00955E4A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9994D1A316FE3ABF00AB071B</key>
 		<dict>
 			<key>primary</key>
