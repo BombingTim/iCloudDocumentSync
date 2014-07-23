@@ -219,6 +219,9 @@
     // Notify the responder that the update has completed
 	[notificationCenter addObserver:self selector:@selector(endUpdate:) name:NSMetadataQueryDidFinishGatheringNotification object:self.query];
     
+	//Listen for any updates
+	[notificationCenter addObserver:self selector:@selector(endUpdate:) name:NSMetadataQueryDidUpdateNotification object:self.query];
+	
     // Start the query on the main thread
     dispatch_async(dispatch_get_main_queue(), ^{
         BOOL startedQuery = [self.query startQuery];
