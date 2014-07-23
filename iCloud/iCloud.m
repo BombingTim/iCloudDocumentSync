@@ -1866,7 +1866,7 @@
     for (int i = 0; i <= 5; i++) NSLog(@"[iCloud] WARNING: updateFilesWithDelegate: is deprecated and will become unavailable in a future version. Use [- updateFiles] instead.");
 }
 
-- (void)saveChangesToDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler {
+- (void)saveChangesToDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler {
     // This method is deprecated: Due to the fact, that the document is recreated in closed state on every call, it is just a copy of the saveAndCloseDocumentWithName-method above
     for (int i = 0; i <= 5; i++) NSLog(@"[iCloud] WARNING: saveChangesToDocumentWithName:withContent:completion: is deprecated and will become unavailable in a future version. Use [- saveAndCloseDocumentWithName:withContent:completion:] instead.");
     

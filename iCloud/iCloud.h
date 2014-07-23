@@ -231,7 +231,7 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
  
  @param documentName The name of the document in iCloud. This value must not be nil.
  @param handler Code block called when the document is successfully retrieved (opened or downloaded). The completion block passes UIDocument and NSData objects containing the opened document and it's contents in the form of NSData. If there is an error, the NSError object will have an error message (may be nil if there is no error). This value must not be nil. */
-- (void)retrieveCloudDocumentWithName:(NSString *)documentName completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull));
+- (void)retrieveCloudDocumentWithName:(NSString *)documentName completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull));
 
 /** Get the relevant iCloudDocument object for the specified file
  
