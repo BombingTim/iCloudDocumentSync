@@ -331,7 +331,7 @@
 //---------------------------------------------------------------------------------------------------------------------------------------------//
 #pragma mark - Write
 
-- (void)saveAndCloseDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler {
+- (void)saveAndCloseDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler {
     // Log save
     if (self.verboseLogging == YES) NSLog(@"[iCloud] Beginning document save");
     
@@ -699,7 +699,7 @@
 //---------------------------------------------------------------------------------------------------------------------------------------------//
 #pragma mark - Read
 
-- (void)retrieveCloudDocumentWithName:(NSString *)documentName completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler {
+- (void)retrieveCloudDocumentWithName:(NSString *)documentName completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler {
     // Log Retrieval
     if (self.verboseLogging == YES) NSLog(@"[iCloud] Retrieving iCloud document, %@", documentName);
     

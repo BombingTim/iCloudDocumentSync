@@ -150,7 +150,7 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
  @param documentName The name of the document being written to iCloud. This value must not be nil.
  @param content The data to write to the document
  @param handler Code block called when the document is successfully saved. The completion block passes UIDocument and NSData objects containing the saved document and it's contents in the form of NSData. The NSError object contains any error information if an error occurred, otherwise it will be nil. */
-- (void)saveAndCloseDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull));
+- (void)saveAndCloseDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull));
 
 /** Upload any local files that weren't created with iCloud
  
@@ -355,7 +355,7 @@ NS_CLASS_AVAILABLE_IOS(5_1) @interface iCloud : NSObject
  @param documentName The name of the document being written to iCloud. This value must not be nil.
  @param content The data to write to the document
  @param handler Code block called when the document changes are recorded. The completion block passes UIDocument and NSData objects containing the saved document and it's contents in the form of NSData. The NSError object contains any error information if an error occurred, otherwise it will be nil. */
-- (void)saveChangesToDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(UIDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull)) __deprecated;
+- (void)saveChangesToDocumentWithName:(NSString *)documentName withContent:(NSData *)content completion:(void (^)(iCloudDocument *cloudDocument, NSData *documentData, NSError *error))handler __attribute__((nonnull)) __deprecated;
 
 /** DEPRECATED. Use uploadLocalOfflineDocuments instead, like so: [[iCloud sharedCloud] uploadLocalOfflineDocuments];
  
